@@ -47,6 +47,9 @@ public class CacheConfiguration {
             createCache(cm, cn.runjava.book.domain.User.class.getName());
             createCache(cm, cn.runjava.book.domain.Authority.class.getName());
             createCache(cm, cn.runjava.book.domain.User.class.getName() + ".authorities");
+            createCache(cm, cn.runjava.book.domain.BookType.class.getName());
+            createCache(cm, cn.runjava.book.domain.BookType.class.getName() + ".books");
+            createCache(cm, cn.runjava.book.domain.Book.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,29 @@
+{
+  "name": "BookType",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "javadoc": "书籍类型名称",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "remark",
+      "fieldType": "String",
+      "javadoc": "书籍类型描述"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200822105750",
+  "javadoc": "书籍类型 @author xiaoshitou",
+  "entityTableName": "book_type",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

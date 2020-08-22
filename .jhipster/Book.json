@@ -1,0 +1,55 @@
+{
+  "name": "Book",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "javadoc": "书籍名称",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "remark",
+      "fieldType": "String",
+      "javadoc": "书籍描述"
+    },
+    {
+      "fieldName": "pic",
+      "fieldType": "byte[]",
+      "javadoc": "书籍描述",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "createTime",
+      "fieldType": "LocalDate",
+      "javadoc": "上架时间"
+    },
+    {
+      "fieldName": "bookStatus",
+      "fieldType": "BookStatus",
+      "javadoc": "书籍状态",
+      "fieldValues": "UP (up),DOWN (down),WAIT (wait)",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "bookType",
+      "otherEntityRelationshipName": "book",
+      "relationshipName": "bookType",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20200822105850",
+  "javadoc": "书籍 @author xiaoshitou",
+  "entityTableName": "book",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

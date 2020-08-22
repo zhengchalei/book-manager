@@ -1,0 +1,61 @@
+
+
+/**
+ * 书籍状态, 上架 , 下架, 待上架 @author xiaoshitou
+ */
+enum BookStatus {
+    UP(up) ,
+    DOWN(down) ,
+    WAIT(wait)
+}
+
+
+/**
+ * 书籍类型 @author xiaoshitou
+ */
+entity BookType {
+
+    /** 书籍类型名称 */
+    name String required
+
+    /** 书籍类型描述 */
+    remark String
+}
+
+
+/**
+ * 书籍 @author xiaoshitou
+ */
+entity Book  {
+
+    /** 书籍名称 */
+    name String required
+
+    /** 书籍描述 */
+    remark String
+
+    /** 书籍描述 */
+    pic Blob
+
+    /** 上架时间 */
+    createTime LocalDate
+
+    /** 书籍状态 */
+    bookStatus BookStatus required
+
+
+}
+
+relationship ManyToOne {
+	Book{bookType(name)} to BookType
+}
+
+// 声明一些 dto
+dto * with mapstruct
+service * with serviceClass
+service * with serviceImpl
+
+// pagination 是分页
+// infinite-scroll 滑动到底部自动加载
+// pager is only available in AngularJS
+paginate * with pagination

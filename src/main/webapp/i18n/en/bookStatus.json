@@ -1,0 +1,10 @@
+{
+  "bookApp": {
+    "BookStatus": {
+      "null": "",
+      "UP": "up",
+      "DOWN": "down",
+      "WAIT": "wait"
+    }
+  }
+}
