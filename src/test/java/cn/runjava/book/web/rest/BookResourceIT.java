@@ -37,9 +37,6 @@ public class BookResourceIT {
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
 
-    private static final String DEFAULT_REMARK = "AAAAAAAAAA";
-    private static final String UPDATED_REMARK = "BBBBBBBBBB";
-
     private static final byte[] DEFAULT_PIC = TestUtil.createByteArray(1, "0");
     private static final byte[] UPDATED_PIC = TestUtil.createByteArray(1, "1");
     private static final String DEFAULT_PIC_CONTENT_TYPE = "image/jpg";
@@ -50,6 +47,9 @@ public class BookResourceIT {
 
     private static final BookStatus DEFAULT_BOOK_STATUS = BookStatus.UP;
     private static final BookStatus UPDATED_BOOK_STATUS = BookStatus.DOWN;
+
+    private static final String DEFAULT_REMARK = "AAAAAAAAAA";
+    private static final String UPDATED_REMARK = "BBBBBBBBBB";
 
     @Autowired
     private BookRepository bookRepository;
@@ -77,11 +77,11 @@ public class BookResourceIT {
     public static Book createEntity(EntityManager em) {
         Book book = new Book()
             .name(DEFAULT_NAME)
-            .remark(DEFAULT_REMARK)
             .pic(DEFAULT_PIC)
             .picContentType(DEFAULT_PIC_CONTENT_TYPE)
             .createTime(DEFAULT_CREATE_TIME)
-            .bookStatus(DEFAULT_BOOK_STATUS);
+            .bookStatus(DEFAULT_BOOK_STATUS)
+            .remark(DEFAULT_REMARK);
         return book;
     }
 
@@ -94,11 +94,11 @@ public class BookResourceIT {
     public static Book createUpdatedEntity(EntityManager em) {
         Book book = new Book()
             .name(UPDATED_NAME)
-            .remark(UPDATED_REMARK)
             .pic(UPDATED_PIC)
             .picContentType(UPDATED_PIC_CONTENT_TYPE)
             .createTime(UPDATED_CREATE_TIME)
-            .bookStatus(UPDATED_BOOK_STATUS);
+            .bookStatus(UPDATED_BOOK_STATUS)
+            .remark(UPDATED_REMARK);
         return book;
     }
 
@@ -122,11 +122,11 @@ public class BookResourceIT {
         assertThat(bookList).hasSize(databaseSizeBeforeCreate + 1);
         Book testBook = bookList.get(bookList.size() - 1);
         assertThat(testBook.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testBook.getRemark()).isEqualTo(DEFAULT_REMARK);
         assertThat(testBook.getPic()).isEqualTo(DEFAULT_PIC);
         assertThat(testBook.getPicContentType()).isEqualTo(DEFAULT_PIC_CONTENT_TYPE);
         assertThat(testBook.getCreateTime()).isEqualTo(DEFAULT_CREATE_TIME);
         assertThat(testBook.getBookStatus()).isEqualTo(DEFAULT_BOOK_STATUS);
+        assertThat(testBook.getRemark()).isEqualTo(DEFAULT_REMARK);
     }
 
     @Test
@@ -197,11 +197,11 @@ public class BookResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(book.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
-            .andExpect(jsonPath("$.[*].remark").value(hasItem(DEFAULT_REMARK)))
             .andExpect(jsonPath("$.[*].picContentType").value(hasItem(DEFAULT_PIC_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].pic").value(hasItem(Base64Utils.encodeToString(DEFAULT_PIC))))
             .andExpect(jsonPath("$.[*].createTime").value(hasItem(DEFAULT_CREATE_TIME.toString())))
-            .andExpect(jsonPath("$.[*].bookStatus").value(hasItem(DEFAULT_BOOK_STATUS.toString())));
+            .andExpect(jsonPath("$.[*].bookStatus").value(hasItem(DEFAULT_BOOK_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].remark").value(hasItem(DEFAULT_REMARK.toString())));
     }
 
     @Test
@@ -217,11 +217,11 @@ public class BookResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(book.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
-            .andExpect(jsonPath("$.remark").value(DEFAULT_REMARK))
             .andExpect(jsonPath("$.picContentType").value(DEFAULT_PIC_CONTENT_TYPE))
             .andExpect(jsonPath("$.pic").value(Base64Utils.encodeToString(DEFAULT_PIC)))
             .andExpect(jsonPath("$.createTime").value(DEFAULT_CREATE_TIME.toString()))
-            .andExpect(jsonPath("$.bookStatus").value(DEFAULT_BOOK_STATUS.toString()));
+            .andExpect(jsonPath("$.bookStatus").value(DEFAULT_BOOK_STATUS.toString()))
+            .andExpect(jsonPath("$.remark").value(DEFAULT_REMARK.toString()));
     }
 
     @Test
@@ -245,11 +245,11 @@ public class BookResourceIT {
         em.detach(updatedBook);
         updatedBook
             .name(UPDATED_NAME)
-            .remark(UPDATED_REMARK)
             .pic(UPDATED_PIC)
             .picContentType(UPDATED_PIC_CONTENT_TYPE)
             .createTime(UPDATED_CREATE_TIME)
-            .bookStatus(UPDATED_BOOK_STATUS);
+            .bookStatus(UPDATED_BOOK_STATUS)
+            .remark(UPDATED_REMARK);
         BookDTO bookDTO = bookMapper.toDto(updatedBook);
 
         restBookMockMvc
@@ -261,11 +261,11 @@ public class BookResourceIT {
         assertThat(bookList).hasSize(databaseSizeBeforeUpdate);
         Book testBook = bookList.get(bookList.size() - 1);
         assertThat(testBook.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testBook.getRemark()).isEqualTo(UPDATED_REMARK);
         assertThat(testBook.getPic()).isEqualTo(UPDATED_PIC);
         assertThat(testBook.getPicContentType()).isEqualTo(UPDATED_PIC_CONTENT_TYPE);
         assertThat(testBook.getCreateTime()).isEqualTo(UPDATED_CREATE_TIME);
         assertThat(testBook.getBookStatus()).isEqualTo(UPDATED_BOOK_STATUS);
+        assertThat(testBook.getRemark()).isEqualTo(UPDATED_REMARK);
     }
 
     @Test

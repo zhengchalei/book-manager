@@ -30,13 +30,7 @@ public class Book implements Serializable {
     private String name;
 
     /**
-     * 书籍描述
-     */
-    @Column(name = "remark")
-    private String remark;
-
-    /**
-     * 书籍描述
+     * 书籍图片
      */
     @Lob
     @Column(name = "pic")
@@ -58,6 +52,13 @@ public class Book implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "book_status", nullable = false)
     private BookStatus bookStatus;
+
+    /**
+     * 书籍描述
+     */
+    @Lob
+    @Column(name = "remark")
+    private String remark;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "books", allowSetters = true)
@@ -83,19 +84,6 @@ public class Book implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public Book remark(String remark) {
-        this.remark = remark;
-        return this;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
     }
 
     public byte[] getPic() {
@@ -150,6 +138,19 @@ public class Book implements Serializable {
         this.bookStatus = bookStatus;
     }
 
+    public String getRemark() {
+        return remark;
+    }
+
+    public Book remark(String remark) {
+        this.remark = remark;
+        return this;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
     public BookType getBookType() {
         return bookType;
     }
@@ -187,11 +188,11 @@ public class Book implements Serializable {
         return "Book{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
-            ", remark='" + getRemark() + "'" +
             ", pic='" + getPic() + "'" +
             ", picContentType='" + getPicContentType() + "'" +
             ", createTime='" + getCreateTime() + "'" +
             ", bookStatus='" + getBookStatus() + "'" +
+            ", remark='" + getRemark() + "'" +
             "}";
     }
 }

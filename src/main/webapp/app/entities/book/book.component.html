@@ -24,10 +24,10 @@
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="name"><span jhiTranslate="bookApp.book.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="remark"><span jhiTranslate="bookApp.book.remark">Remark</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="pic"><span jhiTranslate="bookApp.book.pic">Pic</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="createTime"><span jhiTranslate="bookApp.book.createTime">Create Time</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="bookStatus"><span jhiTranslate="bookApp.book.bookStatus">Book Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="remark"><span jhiTranslate="bookApp.book.remark">Remark</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="bookTypeName"><span jhiTranslate="bookApp.book.bookType">Book Type</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
@@ -36,13 +36,13 @@
                 <tr *ngFor="let book of books ;trackBy: trackId">
                     <td><a [routerLink]="['/book', book.id, 'view']">{{ book.id }}</a></td>
                     <td>{{ book.name }}</td>
-                    <td>{{ book.remark }}</td>
                     <td>
                         <a *ngIf="book.pic" (click)="openFile(book.picContentType, book.pic)" jhiTranslate="entity.action.open">open</a>
                         <span *ngIf="book.pic">{{ book.picContentType }}, {{ byteSize(book.pic) }}</span>
                     </td>
                     <td>{{ book.createTime | date:'mediumDate' }}</td>
                     <td jhiTranslate="{{ 'bookApp.BookStatus.' + book.bookStatus }}">{{ book.bookStatus }}</td>
+                    <td>{{ book.remark }}</td>
                     <td>
                         <div *ngIf="book.bookTypeId">
                             <a [routerLink]="['/book-type', book.bookTypeId , 'view']" >{{ book.bookTypeName }}</a>

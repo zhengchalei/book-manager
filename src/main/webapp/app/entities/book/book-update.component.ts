@@ -24,11 +24,11 @@ export class BookUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     name: [null, [Validators.required]],
-    remark: [],
     pic: [],
     picContentType: [],
     createTime: [],
     bookStatus: [null, [Validators.required]],
+    remark: [],
     bookTypeId: [],
   });
 
@@ -53,11 +53,11 @@ export class BookUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: book.id,
       name: book.name,
-      remark: book.remark,
       pic: book.pic,
       picContentType: book.picContentType,
       createTime: book.createTime,
       bookStatus: book.bookStatus,
+      remark: book.remark,
       bookTypeId: book.bookTypeId,
     });
   }
@@ -97,11 +97,11 @@ export class BookUpdateComponent implements OnInit {
       ...new Book(),
       id: this.editForm.get(['id'])!.value,
       name: this.editForm.get(['name'])!.value,
-      remark: this.editForm.get(['remark'])!.value,
       picContentType: this.editForm.get(['picContentType'])!.value,
       pic: this.editForm.get(['pic'])!.value,
       createTime: this.editForm.get(['createTime'])!.value,
       bookStatus: this.editForm.get(['bookStatus'])!.value,
+      remark: this.editForm.get(['remark'])!.value,
       bookTypeId: this.editForm.get(['bookTypeId'])!.value,
     };
   }

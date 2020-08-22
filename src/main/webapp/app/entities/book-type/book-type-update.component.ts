@@ -4,9 +4,11 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { JhiDataUtils, JhiFileLoadError, JhiEventManager, JhiEventWithContent } from 'ng-jhipster';
 
 import { IBookType, BookType } from 'app/shared/model/book-type.model';
 import { BookTypeService } from './book-type.service';
+import { AlertError } from 'app/shared/alert/alert-error.model';
 
 @Component({
   selector: 'jhi-book-type-update',
@@ -21,7 +23,13 @@ export class BookTypeUpdateComponent implements OnInit {
     remark: [],
   });
 
-  constructor(protected bookTypeService: BookTypeService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected dataUtils: JhiDataUtils,
+    protected eventManager: JhiEventManager,
+    protected bookTypeService: BookTypeService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ bookType }) => {
@@ -34,6 +42,22 @@ export class BookTypeUpdateComponent implements OnInit {
       id: bookType.id,
       name: bookType.name,
       remark: bookType.remark,
+    });
+  }
+
+  byteSize(base64String: string): string {
+    return this.dataUtils.byteSize(base64String);
+  }
+
+  openFile(contentType: string, base64String: string): void {
+    this.dataUtils.openFile(contentType, base64String);
+  }
+
+  setFileData(event: Event, field: string, isImage: boolean): void {
+    this.dataUtils.loadFileToForm(event, this.editForm, field, isImage).subscribe(null, (err: JhiFileLoadError) => {
+      this.eventManager.broadcast(
+        new JhiEventWithContent<AlertError>('bookApp.error', { ...err, key: 'error.file.' + err.key })
+      );
     });
   }
 

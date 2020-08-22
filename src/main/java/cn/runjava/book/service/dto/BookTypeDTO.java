@@ -3,6 +3,7 @@ package cn.runjava.book.service.dto;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
+import javax.persistence.Lob;
 import javax.validation.constraints.*;
 
 /**
@@ -23,6 +24,7 @@ public class BookTypeDTO implements Serializable {
      * 书籍类型描述
      */
     @ApiModelProperty(value = "书籍类型描述")
+    @Lob
     private String remark;
 
     public Long getId() {

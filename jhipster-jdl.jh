@@ -19,7 +19,7 @@ entity BookType {
     name String required
 
     /** 书籍类型描述 */
-    remark String
+    remark TextBlob
 }
 
 
@@ -31,10 +31,7 @@ entity Book  {
     /** 书籍名称 */
     name String required
 
-    /** 书籍描述 */
-    remark String
-
-    /** 书籍描述 */
+    /** 书籍图片 */
     pic Blob
 
     /** 上架时间 */
@@ -43,6 +40,8 @@ entity Book  {
     /** 书籍状态 */
     bookStatus BookStatus required
 
+    /** 书籍描述 */
+    remark TextBlob
 
 }
 

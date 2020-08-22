@@ -17,17 +17,17 @@
         "title": "Book"
       },
       "name": "Name",
-      "remark": "Remark",
       "pic": "Pic",
       "createTime": "Create Time",
       "bookStatus": "Book Status",
+      "remark": "Remark",
       "bookType": "Book Type",
       "help": {
         "name": "书籍名称",
-        "remark": "书籍描述",
-        "pic": "书籍描述",
+        "pic": "书籍图片",
         "createTime": "上架时间",
-        "bookStatus": "书籍状态"
+        "bookStatus": "书籍状态",
+        "remark": "书籍描述"
       }
     }
   }

@@ -23,15 +23,9 @@ public class BookDTO implements Serializable {
     private String name;
 
     /**
-     * 书籍描述
+     * 书籍图片
      */
-    @ApiModelProperty(value = "书籍描述")
-    private String remark;
-
-    /**
-     * 书籍描述
-     */
-    @ApiModelProperty(value = "书籍描述")
+    @ApiModelProperty(value = "书籍图片")
     @Lob
     private byte[] pic;
 
@@ -49,6 +43,13 @@ public class BookDTO implements Serializable {
     @NotNull
     @ApiModelProperty(value = "书籍状态", required = true)
     private BookStatus bookStatus;
+
+    /**
+     * 书籍描述
+     */
+    @ApiModelProperty(value = "书籍描述")
+    @Lob
+    private String remark;
 
     private Long bookTypeId;
 
@@ -68,14 +69,6 @@ public class BookDTO implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
     }
 
     public byte[] getPic() {
@@ -108,6 +101,14 @@ public class BookDTO implements Serializable {
 
     public void setBookStatus(BookStatus bookStatus) {
         this.bookStatus = bookStatus;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
     public Long getBookTypeId() {
@@ -149,10 +150,10 @@ public class BookDTO implements Serializable {
         return "BookDTO{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
-            ", remark='" + getRemark() + "'" +
             ", pic='" + getPic() + "'" +
             ", createTime='" + getCreateTime() + "'" +
             ", bookStatus='" + getBookStatus() + "'" +
+            ", remark='" + getRemark() + "'" +
             ", bookTypeId=" + getBookTypeId() +
             ", bookTypeName='" + getBookTypeName() + "'" +
             "}";

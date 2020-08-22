@@ -8,14 +8,9 @@
       "fieldValidateRules": ["required"]
     },
     {
-      "fieldName": "remark",
-      "fieldType": "String",
-      "javadoc": "书籍描述"
-    },
-    {
       "fieldName": "pic",
       "fieldType": "byte[]",
-      "javadoc": "书籍描述",
+      "javadoc": "书籍图片",
       "fieldTypeBlobContent": "any"
     },
     {
@@ -29,6 +24,12 @@
       "javadoc": "书籍状态",
       "fieldValues": "UP (up),DOWN (down),WAIT (wait)",
       "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "remark",
+      "fieldType": "byte[]",
+      "javadoc": "书籍描述",
+      "fieldTypeBlobContent": "text"
     }
   ],
   "relationships": [

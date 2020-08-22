@@ -9,8 +9,9 @@
     },
     {
       "fieldName": "remark",
-      "fieldType": "String",
-      "javadoc": "书籍类型描述"
+      "fieldType": "byte[]",
+      "javadoc": "书籍类型描述",
+      "fieldTypeBlobContent": "text"
     }
   ],
   "relationships": [],

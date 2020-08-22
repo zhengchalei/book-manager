@@ -1,11 +1,11 @@
-id;name;remark;pic;pic_content_type;create_time;book_status
-1;Handmade Cotton Table CSS;Mayotte Dynamic SAS;../fake-data/blob/hipster.png;image/png;2020-08-21;WAIT
-2;radical solid state synthesizing;intuitive high-level Sleek Rubber Mouse;../fake-data/blob/hipster.png;image/png;2020-08-21;WAIT
-3;Overpass toolset;architectures synthesizing Industrial;../fake-data/blob/hipster.png;image/png;2020-08-21;WAIT
-4;parsing;secondary driver;../fake-data/blob/hipster.png;image/png;2020-08-21;UP
-5;Soft;FTP Points;../fake-data/blob/hipster.png;image/png;2020-08-21;DOWN
-6;override;bus;../fake-data/blob/hipster.png;image/png;2020-08-21;WAIT
-7;optical Berkshire Developer;Fish online;../fake-data/blob/hipster.png;image/png;2020-08-21;DOWN
-8;navigating Club Practical Granite Chicken;generate Health deposit;../fake-data/blob/hipster.png;image/png;2020-08-22;DOWN
-9;Czech Koruna;Soap Producer hard drive;../fake-data/blob/hipster.png;image/png;2020-08-21;UP
-10;Web Checking Account Industrial;back-end Future-proofed compressing;../fake-data/blob/hipster.png;image/png;2020-08-21;UP
+id;name;pic;pic_content_type;create_time;book_status;remark
+1;Handmade Cotton Table CSS;../fake-data/blob/hipster.png;image/png;2020-08-21;WAIT;../fake-data/blob/hipster.txt
+2;digital forecast Bahrain;../fake-data/blob/hipster.png;image/png;2020-08-21;WAIT;../fake-data/blob/hipster.txt
+3;mobile intuitive high-level;../fake-data/blob/hipster.png;image/png;2020-08-22;DOWN;../fake-data/blob/hipster.txt
+4;Sudan connect Overpass;../fake-data/blob/hipster.png;image/png;2020-08-22;WAIT;../fake-data/blob/hipster.txt
+5;Cotton Representative software;../fake-data/blob/hipster.png;image/png;2020-08-21;DOWN;../fake-data/blob/hipster.txt
+6;connecting;../fake-data/blob/hipster.png;image/png;2020-08-22;DOWN;../fake-data/blob/hipster.txt
+7;bleeding-edge payment violet;../fake-data/blob/hipster.png;image/png;2020-08-22;WAIT;../fake-data/blob/hipster.txt
+8;HTTP cross-platform mobile;../fake-data/blob/hipster.png;image/png;2020-08-21;WAIT;../fake-data/blob/hipster.txt
+9;Port turn-key Australian Dollar;../fake-data/blob/hipster.png;image/png;2020-08-22;UP;../fake-data/blob/hipster.txt
+10;relationships;../fake-data/blob/hipster.png;image/png;2020-08-21;DOWN;../fake-data/blob/hipster.txt

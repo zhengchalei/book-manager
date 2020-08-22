@@ -25,7 +25,7 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new Book(0, 'AAAAAAA', 'AAAAAAA', 'image/png', 'AAAAAAA', currentDate, BookStatus.UP);
+      elemDefault = new Book(0, 'AAAAAAA', 'image/png', 'AAAAAAA', currentDate, BookStatus.UP, 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -71,10 +71,10 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             name: 'BBBBBB',
-            remark: 'BBBBBB',
             pic: 'BBBBBB',
             createTime: currentDate.format(DATE_FORMAT),
             bookStatus: 'BBBBBB',
+            remark: 'BBBBBB',
           },
           elemDefault
         );
@@ -97,10 +97,10 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             name: 'BBBBBB',
-            remark: 'BBBBBB',
             pic: 'BBBBBB',
             createTime: currentDate.format(DATE_FORMAT),
             bookStatus: 'BBBBBB',
+            remark: 'BBBBBB',
           },
           elemDefault
         );

@@ -12,10 +12,6 @@
                 <dd>
                     <span>{{ book.name }}</span>
                 </dd>
-                <dt><span jhiTranslate="bookApp.book.remark" [ngbTooltip]="'bookApp.book.help.remark' | translate">Remark</span></dt>
-                <dd>
-                    <span>{{ book.remark }}</span>
-                </dd>
                 <dt><span jhiTranslate="bookApp.book.pic" [ngbTooltip]="'bookApp.book.help.pic' | translate">Pic</span></dt>
                 <dd>
                     <div *ngIf="book.pic">
@@ -30,6 +26,10 @@
                 <dt><span jhiTranslate="bookApp.book.bookStatus" [ngbTooltip]="'bookApp.book.help.bookStatus' | translate">Book Status</span></dt>
                 <dd>
                     <span jhiTranslate="{{ 'bookApp.BookStatus.' + book.bookStatus }}">{{ book.bookStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="bookApp.book.remark" [ngbTooltip]="'bookApp.book.help.remark' | translate">Remark</span></dt>
+                <dd>
+                    <span>{{ book.remark }}</span>
                 </dd>
                 <dt><span jhiTranslate="bookApp.book.bookType">Book Type</span></dt>
                 <dd>

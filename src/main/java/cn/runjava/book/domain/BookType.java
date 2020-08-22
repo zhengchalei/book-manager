@@ -29,6 +29,7 @@ public class BookType implements Serializable {
     /**
      * 书籍类型描述
      */
+    @Lob
     @Column(name = "remark")
     private String remark;
 

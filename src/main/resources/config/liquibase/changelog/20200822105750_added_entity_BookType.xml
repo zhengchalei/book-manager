@@ -19,7 +19,7 @@
             <column name="name" type="varchar(255)" remarks="书籍类型名称">
                 <constraints nullable="false" />
             </column>
-            <column name="remark" type="varchar(255)" remarks="书籍类型描述">
+            <column name="remark" type="${clobType}" remarks="书籍类型描述">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
@@ -46,7 +46,7 @@
                   tableName="book_type">
             <column name="id" type="numeric"/>
             <column name="name" type="string"/>
-            <column name="remark" type="string"/>
+            <column name="remark" type="clob"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>
